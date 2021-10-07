@@ -1226,18 +1226,21 @@ p {
     height: 650px;
 }
 
-.video__play-round {
-    background-image: url("../assets/img/video/play_round_center.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 650px;
+.video__play {
+    background: url(../assets/img/video/play_center.svg);
+    background-size: contain;
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
 }
 
-.video__play {
-    background-image: url("../assets/img/video/play_center.svg");
-    background-repeat: no-repeat;
-    background-position: 690px center;
-    height: 650px;
+.video__play:hover {
+    filter: invert(55%) sepia(40%) saturate(314%) hue-rotate(356deg) brightness(100%) contrast(100%);
+    transition: 1s linear;
 }
 
 .video__controls {
@@ -1247,7 +1250,6 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
 }
 
 .play-control {
@@ -1258,6 +1260,7 @@ p {
     background-repeat: no-repeat;
     margin-left: 30px;
     background-color: #B3B3B3;
+    background-size: contain;
 }
 
 .play-control:hover {
@@ -1273,6 +1276,7 @@ p {
     -webkit-mask-image: url("../assets/img/video/volume.svg");
     background-repeat: no-repeat;
     background-color: #B3B3B3;
+    background-size: cover;
 }
 
 .volume:hover {
@@ -1289,6 +1293,7 @@ p {
     background-repeat: no-repeat;
     margin-right: 30px;
     background-color: #B3B3B3;
+    background-size: contain;
 }
 
 .frame:hover {
@@ -1349,23 +1354,15 @@ p {
 .video__frame {
     width: 452px;
     height: 254px;
-    background-repeat: no-repeat;
+}
+.video__frame iframe{
+    width: 452px;
+    height: 254px;
 }
 
-.frame1 {
-    background-image: url("../assets/img/video/video-slide-item1.jpg");
-}
-
-.frame2 {
-    background-image: url("../assets/img/video/video-slide-item2.jpg");
-}
-
-.frame3 {
-    background-image: url("../assets/img/video/video-slide-item3.jpg");
-}
 
 .video__pag {
-    padding-top: 60px;
+    padding-top: 40px;
     margin: 0 auto;
     width: 200px;
     height: 12px;
@@ -1438,6 +1435,109 @@ p {
 .video__pag-round ul li.active {
     background-color: #333;
 }
+
+
+@media (max-width: 1475px) {
+    .video {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .video-container {
+        height: auto;
+    }
+    .video__text {
+        display: block;
+        padding-bottom: 40px;
+    }
+    .video__title {
+        width: 100%;
+    }
+
+    .video_desc {
+        display: none;
+    }
+    .video__video {
+        width: 100%;
+        height: calc((100vw - 40px) / 1440 *650);
+    }
+    .video__play {
+        width: 152px;
+        height: 152px;
+    }
+    .video__controls {
+        height: 60px;
+    }
+
+    .play-control {
+        width: 23px;
+        height: 30px;
+        mask-image: url("../assets/img/video/play_control.svg");
+        -webkit-mask-image: url("../assets/img/video/play_control.svg");
+        background-repeat: no-repeat;
+        margin-left: 40px;
+        background-color: #B3B3B3;
+    }
+
+    .progress1 {
+        height: 5px;
+        width: 564px;
+    }
+
+    .progress1::-webkit-slider-thumb {
+        width: 13px;
+        height: 13px;
+    }
+
+    .volume {
+        width: 26px;
+        height: 20px;
+        mask-image: url("../assets/img/video/volume1024.svg");
+        -webkit-mask-image: url("../assets/img/video/volume1024.svg");
+    }
+
+    .progress2 {
+        height: 5px;
+        width: 143px;
+    }
+
+    .progress2::-webkit-slider-thumb {
+        width: 13px;
+        height: 13px;
+    }
+
+    .frame {
+        width: 26px;
+        height: 26px;
+        margin-right: 40px;
+        mask-image: url("../assets/img/video/frame1024.svg");
+        -webkit-mask-image: url("../assets/img/video/frame1024.svg");
+    }
+    .video__frames {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    .video__frame {
+        width: 300px;
+        height: 170px;
+        background-repeat: no-repeat;
+    }
+    .video__frame iframe{
+        width: 300px;
+        height: 170px;
+    }
+}
+
+
+
+
+
+
+
 
 /* video styles end */
 /* gallery styles start */
