@@ -1177,6 +1177,7 @@ p {
         background-image: url("../assets/img/explore-slider/after.jpg");
         background-size: contain;
     }
+
     .explore__image img {
         width: 61.11%;
         height: auto;
@@ -1355,11 +1356,11 @@ p {
     width: 452px;
     height: 254px;
 }
-.video__frame iframe{
+
+.video__frame iframe {
     width: 452px;
     height: 254px;
 }
-
 
 .video__pag {
     padding-top: 40px;
@@ -1446,10 +1447,12 @@ p {
     .video-container {
         height: auto;
     }
+
     .video__text {
         display: block;
         padding-bottom: 40px;
     }
+
     .video__title {
         width: 100%;
     }
@@ -1457,14 +1460,17 @@ p {
     .video_desc {
         display: none;
     }
+
     .video__video {
         width: 100%;
-        height: calc((100vw - 40px) / 1440 *650);
+        height: calc((100vw - 40px) / 1440 * 650);
     }
+
     .video__play {
         width: 152px;
         height: 152px;
     }
+
     .video__controls {
         height: 60px;
     }
@@ -1472,11 +1478,7 @@ p {
     .play-control {
         width: 23px;
         height: 30px;
-        mask-image: url("../assets/img/video/play_control.svg");
-        -webkit-mask-image: url("../assets/img/video/play_control.svg");
-        background-repeat: no-repeat;
         margin-left: 40px;
-        background-color: #B3B3B3;
     }
 
     .progress1 {
@@ -1513,30 +1515,173 @@ p {
         mask-image: url("../assets/img/video/frame1024.svg");
         -webkit-mask-image: url("../assets/img/video/frame1024.svg");
     }
+
     .video__frames {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
         padding-top: 40px;
     }
 
     .video__frame {
         width: 300px;
         height: 170px;
-        background-repeat: no-repeat;
     }
-    .video__frame iframe{
+
+    .video__frame iframe {
         width: 300px;
         height: 170px;
     }
 }
 
+@media (max-width: 1000px) {
+    .video {
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
 
+    .video__text {
+        padding-bottom: 20px;
+    }
 
+    .video__play {
+        width: 80px;
+        height: 80px;
+    }
 
+    .video__controls {
+        height: 62px;
+        padding-top: 9px;
+    }
 
+    .play-control {
+        margin-left: 30px;
+    }
 
+    .progress-bar1 {
+        right: 20px;
+        position: absolute;
+        left: 20px;
+        margin-top: -62px;
+        width: 100%;
+    }
+
+    .progress1 {
+        width: calc(100% - 40px);
+    }
+
+    .progress2 {
+        width: 486px;
+    }
+
+    .frame {
+        margin-right: 30px;
+    }
+
+    .video__frames {
+        padding-top: 20px;
+        gap: 20px;
+    }
+
+    .frame3 {
+        display: none;
+    }
+
+    .video__frame {
+        width: calc(50vw - 30px);
+        height: calc((50vw - 30px) / 1.779);
+    }
+
+    .video__frame iframe {
+        width: calc(50vw - 30px);
+        height: calc((50vw - 30px) / 1.779);
+    }
+
+    .video__pag {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 720px) {
+    .video {
+        padding-top: 36px;
+        padding-bottom: 40px;
+    }
+
+    .video__text {
+        padding-bottom: 20px;
+    }
+
+    .video__play {
+        width: 61px;
+        height: 61px;
+    }
+
+    .video__controls {
+        height: 62px;
+        padding-top: 9px;
+    }
+
+    .play-control {
+        width: 14px;
+        height: 18px;
+        mask-image: url("../assets/img/video/play_control420.svg");
+        -webkit-mask-image: url("../assets/img/video/play_control420.svg");
+        margin-left: 20px;
+    }
+
+    .volume {
+        width: 18px;
+        height: 14px;
+        mask-image: url("../assets/img/video/volume420.svg");
+        -webkit-mask-image: url("../assets/img/video/volume420.svg");
+    }
+
+    .progress1 {
+        height: 4px;
+    }
+
+    .progress1::-webkit-slider-thumb {
+        width: 10px;
+        height: 10px;
+    }
+
+    .progress2 {
+        height: 4px;
+        width: 200px;
+    }
+
+    .progress2::-webkit-slider-thumb {
+        width: 10px;
+        height: 10px;
+    }
+
+    .frame {
+        width: 18px;
+        height: 18px;
+        mask-image: url("../assets/img/video/frame420.svg");
+        -webkit-mask-image: url("../assets/img/video/frame420.svg");
+        margin-right: 20px;
+    }
+
+    .video__frames {
+        padding-top: 40px;
+    }
+
+    .video__pag {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 380px) {
+    .play-control {
+        margin-left: 5px;
+    }
+    .progress2 {
+        height: 4px;
+        width: 40vw;
+    }
+    .frame {
+      margin-right: 5px;
+    }
+}
 
 
 /* video styles end */
