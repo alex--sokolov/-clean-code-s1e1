@@ -1944,6 +1944,138 @@ p {
     transition: 0.8s;
 }
 
+
+/* Tickets media start */
+@media (max-width: 1300px) {
+
+    .tickets-container {
+        padding-top: 60px;
+        padding-bottom: 34px;
+    }
+
+    .tickets__buy {
+        justify-content: flex-end;
+        margin-left: 0px;
+        margin-right: 30px;
+    }
+
+    .tickets__type {
+        display: none;
+    }
+
+    .tickets__amount {
+        align-items: unset;
+    }
+
+    .amout__inner {
+        width: 175px;
+        margin-bottom: 30px;
+    }
+    .tickets__img{
+        width: 700px;
+        height: 440px;
+    }
+
+    .amount__title {
+        margin-bottom: 31px;
+    }
+
+    .amount__text {
+        margin-bottom: 8px;
+        margin-left: 0;
+    }
+
+    .tickets__total {
+        margin-bottom: 70px;
+        margin-top: -4px;
+        padding-left: 0;
+    }
+
+    .tickets__total span {
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .tickets-container {
+        padding-top: 40px;
+        padding-bottom: 15px;
+    }
+
+    .tickets__img{
+        width: 444px;
+        height: 340px;
+    }
+
+    .tickets__buy {
+        margin-right: 50px;
+    }
+
+    .amount__title {
+        margin-bottom: 40px;
+    }
+
+    .amout__inner {
+        margin-bottom: 27px;
+    }
+
+    .amont__button {
+        padding: 0 15px;
+    }
+    .tickets__total {
+        margin-top: 12px;
+        margin-bottom: 40px;
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .ticket__inner{
+        flex-wrap: wrap;
+    }
+    .tickets__img{
+        width: 100%;
+        height: auto;
+    }
+    .tickets__buy{
+        justify-content: center;
+        margin-left: 0;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .amout__inner{
+        margin-bottom: 20px;
+    }
+    .amount__title{
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 20px;
+    }
+    .amount__text{
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 15px;
+    }
+    .tickets__total{
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0;
+        margin-top: 20px;
+    }
+    .tickets__total span {
+        padding-right: 4px;
+    }
+    .tickets__button{
+        font-size: 16px;
+        line-height: 0px;
+    }
+}
+
+/* Tickets media end */
+
+
+
 .popup {
     margin: 0 auto;
     visibility: hidden;
