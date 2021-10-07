@@ -1704,7 +1704,7 @@ p {
 
 .picture-inner-container {
     padding-top: 75px;
-    height: inherit;
+    height: 2900px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -1736,6 +1736,7 @@ p {
     }
 
     .picture-inner-container {
+        height: 2230px;
         padding-top: 60px;
     }
 
@@ -1754,6 +1755,7 @@ p {
     }
 
     .picture-inner-container {
+        height: 2010px;
         padding-top: 40px;
         gap: 24px;
     }
