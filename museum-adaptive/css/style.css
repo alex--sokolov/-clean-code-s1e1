@@ -1704,12 +1704,13 @@ p {
 
 .picture-inner-container {
     padding-top: 75px;
-    height: 2900px;
+    height: calc(100vw + 900px);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 24px 36px;
     justify-content: center;
+    overflow: hidden;
 }
 
 .gallery-img {
@@ -1736,7 +1737,6 @@ p {
     }
 
     .picture-inner-container {
-        height: 2230px;
         padding-top: 60px;
     }
 
@@ -1755,7 +1755,6 @@ p {
     }
 
     .picture-inner-container {
-        height: 2010px;
         padding-top: 40px;
         gap: 24px;
     }
