@@ -1699,11 +1699,12 @@ p {
     width: 1440px;
     overflow-y: hidden;
     padding-top: 75px;
+    position: relative;
 }
 
 .picture-inner-container {
     padding-top: 75px;
-    height: 2970px;
+    height: inherit;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -1717,9 +1718,59 @@ p {
 }
 
 .gallery-gradient {
-    position: relative;
-    bottom: 1295px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
+
+
+
+@media (max-width: 1475px) {
+    .gallery{
+        width: 101%;
+    }
+    .picture-container {
+        height: 1460px;
+        width: calc(100vw - 40px);
+        padding-top: 60px;
+    }
+
+    .picture-inner-container {
+        padding-top: 60px;
+    }
+
+    .gallery-img {
+        height: auto;
+        width: calc((100vw - 112px) / 3);
+    }
+
+}
+
+@media (max-width: 900px) {
+    .picture-container {
+        height: 1220px;
+        padding-top: 40px;
+
+    }
+
+    .picture-inner-container {
+        padding-top: 40px;
+        gap: 24px;
+    }
+
+    .gallery-img {
+        width: calc((100vw - 64px) / 2);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    .picture-container {
+        height: 757px;
+    }
+}
+
 
 /* gallery styles end */
 /* tickets styles start */
