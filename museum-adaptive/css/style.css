@@ -2074,7 +2074,7 @@ p {
 
 /* Tickets media end */
 
-
+/* Popup start*/
 
 .popup {
     margin: 0 auto;
@@ -2570,17 +2570,6 @@ input::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
 
-@keyframes ripple {
-    from {
-        opacity: 1;
-        transform: scale(0);
-    }
-
-    to {
-        opacity: 0;
-        transform: scale(10);
-    }
-}
 
 .card-backside-cvv {
     font-family: "Roboto";
@@ -2653,9 +2642,189 @@ input::-webkit-calendar-picker-indicator {
     position: absolute;
     top: 1.5px;
     right: 11px;
+}
 
+
+
+/* Popup media start */
+
+
+
+/* Popup media end */
+@media (max-width: 1440px) {
+    .popup {
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .popup {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 1070px) {
+    .popup {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tickets{
+        position: relative;
+    }
+    .popup {
+        max-width: 590px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 77px 30px 39px 30px;
+        position: absolute;
+    }
+
+    .form__inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .form__left {
+        width: 100%;
+    }
+
+    .form__title {
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    .form__subtitle {
+        margin-bottom: 39px;
+
+    }
+
+    .date,
+    .time {
+        width: 252px;
+    }
+
+    .date {
+        margin-right: 22px;
+
+    }
+
+    .date__svg {
+        left: 220px;
+    }
+
+    .time:before {
+        padding-right: 120px;
+    }
+
+    .form__right {
+        margin-top: 50px;
+        padding: 24px 14px;
+    }
+
+    .form__right-total {
+        margin-bottom: 14px;
+
+    }
+
+    .form__right__button {
+        margin-top: 55px;
+        font-size: 20px;
+    }
+}
+
+@media( max-width: 760px){
+    .popup{
+        padding: 77px 30px 50px 30px;
+    }
+    .form__title{
+        font-size: 32px;
+        line-height: 35px;
+    }
+    .form__subtitle{
+        border-bottom: 2px solid #740c11;
+    }
+    .date__input,
+    .time__input,
+    .date,
+    .time{
+        width: 100%;
+    }
+    .time:before,
+    .date:before{
+        padding-right: 1300px;
+    }
+    .date__svg{
+        left: 328px;
+    }
+    .form__right{
+        width: 100%;
+    }
+    .form__right__header-img {
+        height: 96px;
+    }
+    .card-frontside{
+        width: 100%;
+        margin-top: 16px;
+        height: 210px;
+    }
+    .card-frontside__text{
+        font-size: 11px;
+    }
+    .card__name{
+        width: 100%;
+    }
+    .card-backside{
+        position: initial;
+        width: 100%;
+        margin-top: 26px;
+        height: 210px;
+    }
+    .card-backside-blackline{
+        margin-top: 25px;
+        position: absolute;
+    }
+    .card-backside-cvv{
+        padding-top: 86px;
+        font-size: 13px;
+    }
+    .card-backside-cvv__info{
+        font-size: 9px;
+        line-height: 11px;
+        margin-right: 34px;
+    }
+    .form__right__button{
+        margin-top: 38px;
+    }
 
 }
+
+
+
+/* Popup end */
+
+
+
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10);
+    }
+}
+
+
 
 /* tickets styles end */
 
