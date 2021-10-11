@@ -531,7 +531,6 @@ p {
     width: 100%;
     height: 750px;
     transition: 1s;
-    outline: 3px solid red;
     overflow: hidden;
 }
 .welcome__slider-wrapper::before {
@@ -1188,19 +1187,43 @@ p {
 .explore__image {
     width: 720px;
     height: 700px;
-    background-image: url("../assets/img/explore-slider/after.jpg");
+    position: relative;
 }
 
-.explore__image img {
-    height: 700px;
-    width: 440px;
+.explore-img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    overflow: hidden;
 }
 
-.explore__image img:nth-child(2) {
+.explore-img img {
+    display: block;
+    vertical-align: middle;
+    width: 720px;
     height: 700px;
-    width: 39px;
-    margin-left: -19px;
 }
+
+.explore-slider {
+    position: absolute;
+    z-index: 9;
+    cursor: ew-resize;
+    /*установите внешний вид ползунка:*/
+    width: 40px;
+    height: 700px;
+    background: url("../assets/img/explore-slider/explore_slider.svg") no-repeat;
+}
+
+/*.explore__image img {*/
+/*    height: 700px;*/
+/*    width: 440px;*/
+/*}*/
+
+/*.explore__image img:nth-child(2) {*/
+/*    height: 700px;*/
+/*    width: 39px;*/
+/*    margin-left: -19px;*/
+/*}*/
 
 @media (max-width: 1475px) {
     .explore-container {
@@ -1254,22 +1277,41 @@ p {
 @media (max-width: 780px) {
 
     .explore__image {
-        width: 100%;
-        height: auto;
-        background-image: url("../assets/img/explore-slider/after.jpg");
-        background-size: contain;
+        width: 380px;
+        height: 368px;
     }
 
-    .explore__image img {
-        width: 61.11%;
-        height: auto;
+    .explore-img img {
+        display: block;
+        vertical-align: middle;
+        width: 380px;
+        height: 368px;
     }
 
-    .explore__image img:nth-child(2) {
-        width: 5.42%;
-        height: auto;
-        margin-left: -2.64%;
+    .explore-slider {
+        width: 20px;
+        height: 368px;
+        background: url("../assets/img/explore-slider/explore_slider_small.svg") no-repeat;
     }
+
+
+    /*.explore__image {*/
+    /*    width: 100%;*/
+    /*    height: auto;*/
+    /*    background-image: url("../assets/img/explore-slider/after.jpg");*/
+    /*    background-size: contain;*/
+    /*}*/
+
+    /*.explore__image img {*/
+    /*    width: 61.11%;*/
+    /*    height: auto;*/
+    /*}*/
+
+    /*.explore__image img:nth-child(2) {*/
+    /*    width: 5.42%;*/
+    /*    height: auto;*/
+    /*    margin-left: -2.64%;*/
+    /*}*/
 }
 
 
