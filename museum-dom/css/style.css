@@ -195,6 +195,15 @@ p {
     }
 }
 
+@keyframes galleryImgShow {
+    0% {
+        transform: translateY(200px) scale(0.75);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* Animations end */
 
 
@@ -1838,6 +1847,11 @@ p {
     height: auto;
     width: 456px;
 }
+
+.gallery-img.show {
+    animation: galleryImgShow 1s ease-in forwards;
+}
+
 
 .gallery-gradient {
     position: absolute;
