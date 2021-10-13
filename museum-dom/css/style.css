@@ -204,6 +204,16 @@ p {
     }
 }
 
+@keyframes btnToTopShow {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
 /* Animations end */
 
 
@@ -3398,6 +3408,41 @@ input::-webkit-calendar-picker-indicator {
     .navigation__footer {
         columns: 1;
     }
+}
+
+
+.btn-to-top{
+    width: 75px;
+    height: 75px;
+    position: fixed;
+    right:100px;
+    bottom: 100px;
+    border-radius: 50%;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    display: none;
+    font-family: Roboto;
+    font-size: 22px;
+    line-height: 75px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    background-color: #710707;
+    opacity: 0.7;
+    transition: 1s;
+
+}
+.btn-to-top.active{
+    display: block;
+    transition: 1s;
+    animation: btnToTopShow 1s ease-in forwards;
+}
+
+.btn-to-top:hover {
+    background-color: #9D8665;
+    opacity: 1;
+    transition: 1s;
+    cursor: pointer;
 }
 
 
