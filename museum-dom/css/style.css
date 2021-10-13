@@ -3041,6 +3041,14 @@ input::-webkit-calendar-picker-indicator {
     color: #9d8665;
     transition: 0.8s;
 }
+.mapbox{
+    position:relative;
+    right:0;
+    width:100%;
+    max-width:960px;
+    height:620px;
+    max-height:620px;
+}
 
 @media (max-width: 1024px){
 
@@ -3069,9 +3077,9 @@ input::-webkit-calendar-picker-indicator {
         margin-bottom: 15px;
     }
 
-    .map__img {
+    .mapbox {
         width: 100%;
-        height: auto;
+        height: 454px;
     }
 }
 
@@ -3090,8 +3098,6 @@ input::-webkit-calendar-picker-indicator {
     .contacts__title {
         padding-bottom: 20px;
         margin-bottom: 40px;
-
-
     }
 
     .contacts__title-info-title {
@@ -3106,7 +3112,7 @@ input::-webkit-calendar-picker-indicator {
         line-height: 21px;
     }
 
-    .map__img {
+    .mapbox {
         margin-top: 25px;
     }
 }
@@ -3120,7 +3126,8 @@ input::-webkit-calendar-picker-indicator {
     .contacts__title{
         padding-bottom: 19px;
     }
-    .map__img{
+    .mapbox{
+        margin-top: 25px;
         width: 380px;
         height: 248px;
     }
@@ -3132,14 +3139,10 @@ input::-webkit-calendar-picker-indicator {
         font-size: 16px;
         line-height: 19px;
     }
-    .map__img{
-        margin-top: 25px;
-    }
 }
 
-
 @media  (max-width: 400px) {
-    .map__img {
+    .mapbox {
         width: 100%;
         height: auto;
     }
