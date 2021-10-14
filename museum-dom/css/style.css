@@ -1366,7 +1366,6 @@ p {
 .video__video {
     position: relative;
     height: 650px;
-    border: 1px solid blue;
 }
 
 .video__container-main{
@@ -1374,7 +1373,6 @@ p {
     margin: 0;
     width: 100%;
     height: 650px;
-    border: 1px solid red;
 }
 .playback-rate{
     display:none;
