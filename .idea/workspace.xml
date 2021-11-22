@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4877ba15-5777-4d63-a884-674a354281c9" name="Default Changelist" comment="" />
+    <list default="true" id="4877ba15-5777-4d63-a884-674a354281c9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -16,10 +25,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../momentum" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../htmlbuilder" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -31,7 +41,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1635106462877</updated>
-      <workItem from="1635106464536" duration="7040000" />
+      <workItem from="1635106464536" duration="8510000" />
+      <workItem from="1635360751049" duration="3028000" />
+      <workItem from="1635503575760" duration="2383000" />
+      <workItem from="1635847281035" duration="1812000" />
+      <workItem from="1636107662701" duration="2399000" />
+      <workItem from="1636301057300" duration="3842000" />
     </task>
     <servers />
   </component>
@@ -39,9 +54,9 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1635190219974">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1636311957622">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1635190219974" />
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1636311957622" />
   </component>
 </project>
