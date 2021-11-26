@@ -1,0 +1,1 @@
+export { ArtistQuiz } from './ArtistQuiz';

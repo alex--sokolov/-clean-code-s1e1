@@ -1,0 +1,260 @@
+#category{
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.audioplayer{
+  height: 100px;
+}
+
+.question{
+  font-family: Gilroy;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 28px;
+  color: #fff;
+  text-align: center;
+}
+.picture{
+  margin: 30px auto;
+  text-align: center;
+}
+.picture img{
+  position: relative;
+  width: 90%;
+  border-radius: 10%;
+}
+
+.answers{
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0px auto;
+}
+.answer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Gilroy;
+  font-size: 16px;
+  line-height: 18px;
+  color: #fff;
+  height: 60px;
+  width: 46%;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  margin: 10px auto 7px auto;
+  letter-spacing: -0.91px;
+  cursor: pointer;
+}
+
+.answer:hover{
+  background-color: #FFBCA2;
+  color: #000;
+  border: #FFBCA2;
+  font-weight: bold;
+}
+
+.footer{
+  height: 80px;
+}
+
+
+.popup{
+  position: fixed;
+  top: 70px;
+  left: -400%;
+  transition: 1s;
+}
+
+
+.right-answer{
+  background: url("../../assets/img/correct-answer.png");
+}
+
+.wrong-answer{
+  background: url("../../assets/img/wrong-answer.png");
+}
+.right-answer,
+.wrong-answer{
+  position: absolute;
+  display: none;
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: 60px;
+  top: 190px;
+}
+
+.active {
+  display: block;
+}
+
+@keyframes fromLeft {
+  from {
+    left: -400%;
+  }
+  to {
+    left: 20%;
+  }
+}
+
+
+.picture-title{
+  text-align: center;
+  font-family: Gilroy;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 38px;
+}
+.picture-author{
+  text-align: center;
+  font-family: Gilroy;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 26px;
+}
+.picture-year{
+  text-align: center;
+  font-family: Gilroy;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+.btn-next{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  height: 62px;
+  width: 240px;
+  background-color: #FFBCA2;
+  font-family: Gilroy;
+  font-size: 22px;
+  font-weight: normal;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-next:hover{
+  background-color: hotpink;
+}
+
+.overlay {
+  position: fixed;
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.overlay-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1000;
+  transition: 1s;
+}
+
+.congratulations,
+.grandResult,
+.gameOver{
+  position: fixed;
+  top: 70px;
+  left: -400%;
+  transition: 1s;
+}
+
+.popUp-active{
+  width: 60%;
+  animation: 1.25s fromLeft;
+  left: 20%;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  visibility: visible;
+  opacity: 1;
+  z-index: 1000;
+}
+
+.close{
+  text-align: right;
+  background-color: #000;
+  mask-image: url("../../assets/svg/close.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("../../assets/svg/close.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  cursor: pointer;
+  margin-right: 30px;
+  margin-top: 30px;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+  display: block;
+}
+
+.close:hover{
+  background-color: #333;
+}
+.congrat-cup{
+  background: url("../../assets/img/congratulations.png") no-repeat;
+  height: 140px;
+  width: 150px;
+  text-align: center;
+}
+.congrat-text{
+  font-family: Gilroy;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.congratulations-score{
+  font-family: Gilroy;
+  font-size: 48px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+.congratsBtns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.congrats-home,
+.congrats-nextQuiz{
+  display: flex;
+  background-color: #FFBCA2;
+  font-family: Gilroy;
+  font-size: 18px;
+  width: 45%;
+  height: 62px;
+  border-radius: 50px;
+  margin: 80px auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 1s;
+  color: #000;
+  text-decoration: none;
+}
+
+.congrats-home:hover,
+.congrats-nextQuiz:hover{
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
