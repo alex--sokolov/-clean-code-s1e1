@@ -42,10 +42,11 @@
 }
 
 .logo2{
+  display: block;
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 100%;
+  width: 170px;
   height: 100px;
   background: url("../../assets/img/logo.png") no-repeat;
   cursor: pointer;

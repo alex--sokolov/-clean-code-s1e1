@@ -15,6 +15,7 @@ export class Categories {
         this.outScore = '';
         this.passedTask = '';
         this.key = 0;
+
         this.categoriesToRenderAuthor = categoryData.pageCategoriesAuthor.map((pageCategory, index) => {
             this.key = index + 1;
             Utils.getLocalStorage('authors' +  this.key, this.score);
@@ -87,8 +88,8 @@ export class Categories {
         }
         return `
                 <section id="categories" class="section">
-                    <div class="settings"></div>
-                    <div class="logo2"></div>
+                    <a href="#/settings" class="settings"></a>
+                    <a href="/" class="logo2"></a>
                     <div class="categories-page-title">${this.category}</div>
                         <div class="categories-main-container">
                             ${this.categoriesToRenderString}

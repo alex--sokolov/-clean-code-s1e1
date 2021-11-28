@@ -17,7 +17,7 @@ const Utils = {
     },
 
     setLocalStorage(key, data) {
-        localStorage.setItem(key, data);
+        localStorage.setItem(key, data.value);
     },
 
     getLocalStorage(key, data) {

@@ -155,19 +155,19 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 0;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.1s;
 }
 
 .overlay-fadeIn {
   visibility: visible;
   opacity: 1;
   z-index: 1000;
-  transition: 1s;
+  transition: 0.1s;
 }
 
 .congratulations,
 .grandResult,
-.gameOver{
+.gameover{
   position: fixed;
   top: 70px;
   left: -400%;
@@ -184,6 +184,7 @@
   visibility: visible;
   opacity: 1;
   z-index: 1000;
+  transition: 1s;
 }
 
 .close{
@@ -207,12 +208,21 @@
 .close:hover{
   background-color: #333;
 }
+
 .congrat-cup{
   background: url("../../assets/img/congratulations.png") no-repeat;
   height: 140px;
   width: 150px;
   text-align: center;
 }
+
+.gameover-cup{
+  background: url("../../assets/img/gameOver.png") no-repeat;
+  height: 140px;
+  width: 150px;
+  text-align: center;
+}
+
 .congrat-text{
   font-family: Gilroy;
   font-size: 22px;
@@ -228,14 +238,19 @@
   margin: 15px auto;
 }
 
-.congratsBtns{
+.congratsBtns,
+.gameover-btns{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .congrats-home,
-.congrats-nextQuiz{
+.congrats-nextQuiz,
+.gameover-home,
+.gameover-playagain
+{
   display: flex;
   background-color: #FFBCA2;
   font-family: Gilroy;
@@ -254,7 +269,58 @@
 }
 
 .congrats-home:hover,
-.congrats-nextQuiz:hover{
+.congrats-nextQuiz:hover,
+.gameover-home:hover,
+.gameover-playagain:hover{
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.go-text,
+.grand-text{
+  font-family: Gilroy;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+}
+
+.grand-text{
+  font-size: 54px;
+}
+
+.text-small{
+  font-family: Gilroy;
+  font-size: 22px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.stars{
+  background: url("../../assets/img/grandResult.png") no-repeat;
+  height: 140px;
+  width: 100%;
+  background-position: center;
+}
+.grand-next{
+  display: flex;
+  background-color: #FFBCA2;
+  font-family: Gilroy;
+  font-size: 18px;
+  width: 45%;
+  height: 62px;
+  border-radius: 50px;
+  margin: 80px auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 1s;
+  color: #000;
+  text-decoration: none;
+}
+
+.grand-next:hover{
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }

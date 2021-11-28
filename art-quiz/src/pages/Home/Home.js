@@ -18,7 +18,7 @@ export class Home {
       location.hash= '/categories?cat=1';
     }
     function goToPictureQuiz() {
-      location.hash= '/categoties?cat=2';
+      location.hash= '/categories?cat=2';
     }
     function goToSettings() {
       location.hash = '/settings';

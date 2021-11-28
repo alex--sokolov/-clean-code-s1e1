@@ -1,6 +1,7 @@
 import CategoryHTML from './Category.html';
 import './Category.scss';
 import {CategoryData} from "../../components/CategoryData";
+import {Loading} from "../../components/Loading";
 import Utils from '../../utils/Utils';
 
 const categoryData = new CategoryData();
@@ -16,19 +17,39 @@ export class Category {
         this.category = 'Artist Quiz';
         this.correctAnswers = [];
         this.totalRightAnswers = 0;
-
-        this.categoryPicture = (id, num) =>{
-                return `<img src="./data/img/${categoryData.pageCategoriesAuthor[id-1][num].imageNum}.jpg" 
-                            title="${categoryData.pageCategoriesAuthor[id-1][num].name}" 
-                            alt="${categoryData.pageCategoriesAuthor[id-1][num].name}">   
-                   `}
+        this.initialResults = {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": [],
+            "11": [],
+            "12": []
+        };
+        if (!localStorage.getItem('pictureResults')) {
+            localStorage.setItem('pictureResults', JSON.stringify(this.initialResults));
+            localStorage.setItem('artistsResults', JSON.stringify(this.initialResults));
+        }
+        this.pictureResults = JSON.parse(localStorage.getItem('pictureResults'));
+        this.artistsResults = JSON.parse(localStorage.getItem('artistsResults'));
+        this.categoryPicture = (id, num) => {
+            return `<img src="./data/img/${categoryData.pageCategoriesAuthor[id - 1][num].imageNum}.jpg" 
+                            title="${categoryData.pageCategoriesAuthor[id - 1][num].name}" 
+                            alt="${categoryData.pageCategoriesAuthor[id - 1][num].name}">   
+                   `
+        }
         this.categoryAnswers = (id, num) => {
-            const answers=[];
+            const answers = [];
             let uniqueAuthor;
             answers.push(this.right_answer);
-            for (let i=0; i<3;){
+            for (let i = 0; i < 3;) {
                 uniqueAuthor = categoryData.answers.answersByAuthor[getRandom(categoryData.answers.answersByAuthor.length)]
-                if (uniqueAuthor !== this.right_answer){
+                if (uniqueAuthor !== this.right_answer) {
                     answers.push(uniqueAuthor);
                     i++;
                 }
@@ -43,13 +64,6 @@ export class Category {
                     </div> 
                     `
         }
-
-
-
-
-
-
-
     };
 
     async render(params) {
@@ -61,7 +75,7 @@ export class Category {
             this.id = params.get("id") || 1;
             this.num = params.get("num") || 0;
             this.popupBtn = (this.num != 9) ? `Next` : 'The End';
-            this.right_answer = categoryData.pageCategoriesAuthor[this.id-1][this.num].author;
+            this.right_answer = categoryData.pageCategoriesAuthor[this.id - 1][this.num].author;
             this.question = 'Who is the author of this picture?'
             this.categoryPictureToRenderString = this.categoryPicture(this.id, this.num);
             this.categoryAnswersToRenderString = this.categoryAnswers(this.id, this.num);
@@ -94,13 +108,13 @@ export class Category {
                  </div>
                  
                  <div class="picture-title">
-                     ${categoryData.pageCategoriesAuthor[this.id-1][this.num].name}
+                     ${categoryData.pageCategoriesAuthor[this.id - 1][this.num].name}
                  </div>
                  <div class="picture-author">
-                     ${categoryData.pageCategoriesAuthor[this.id-1][this.num].author}
+                     ${categoryData.pageCategoriesAuthor[this.id - 1][this.num].author}
                  </div>
                  <div class="picture-year">
-                     ${categoryData.pageCategoriesAuthor[this.id-1][this.num].year}
+                     ${categoryData.pageCategoriesAuthor[this.id - 1][this.num].year}
                  </div>
                  <div class="btn-next">${this.popupBtn}</div>
             </div>
@@ -109,30 +123,30 @@ export class Category {
                 <a href="/" class="close"></a>
                 <div class="congrat-cup"></div>
                 <div class="congrat-text">Congratulations!</div>
-                <div class="congratulations-score">${this.totalRightAnswers}/10</div>
+                <div class="congratulations-score"></div>
                 
                 <div class="congratsBtns">
                     <a href="/" class="congrats-home">Home</a>
-                    <a href="/#/category?cat=${this.cat}&id=${+this.id+1}" class="congrats-nextQuiz">NextQuiz</a>
+                    <a href="/#/category?cat=${this.cat}&id=${+this.id + 1}" class="congrats-nextQuiz">NextQuiz</a>
                 </div>
             </div>
              
              <div class="grandResult">
                 <div class="close"></div>
                 <div class="stars"></div>
-                <div class="grand-text"></div>
-                <div class="text-small"></div>
+                <div class="grand-text">Grand<br>result</div>
+                <div class="text-small">Congratulations!</div>
                 <div class="grand-next">Next</div>
             </div>
             
-            <div class="gameOver">
+            <div class="gameover">
                 <div class="close"></div>
-                <div class="cup"></div>
-                <div class="go-text"></div>
-                <div class="text-small"></div>
-                <div class="congratsBtns">
-                    <a href="/" class="home">Cancel</a>
-                    <a href="" class="nextQuiz">Yes</a>
+                <div class="gameover-cup"></div>
+                <div class="go-text">Game over</div>
+                <div class="text-small">Play again?</div>
+                <div class="gameover-btns">
+                    <a href="/" class="gameover-home">Cancel</a>
+                    <a href="" class="gameover-playagain">Yes</a>
                 </div>
             </div>
       `
@@ -144,43 +158,62 @@ export class Category {
             this.catLink = 1;
             this.categoriesToRenderString = this.categoriesToRenderName.reduce((x, y) => x + y);
         }
-
     }
 
-
-
-
     async after_render(params) {
+        this.parentNodeForLoading = document.getElementById('page_container');
+        this.loading = document.createElement('div');
+        this.loadingInstance = new Loading();
+        this.loading.innerHTML = await this.loadingInstance.render();
         this.answerElement = document.querySelectorAll('.answer');
         this.nextBtn = document.querySelector('.btn-next');
+        this.congrats = document.querySelector('.congratulations');
         this.congratsHome = document.querySelector('.congrats-home');
+        this.congratsScore = document.querySelector('.congratulations-score')
         this.nextQuiz = document.querySelector('.congrats-nextQuiz');
         this.popUp = document.querySelector('.popup');
         this.rightAnswer = document.querySelector('.right-answer');
         this.wrongAnswer = document.querySelector('.wrong-answer');
         this.overlay = document.querySelector('.overlay');
+        this.gameOver = document.querySelector('.gameover');
+        this.gameOverHome = document.querySelector('.gameover-home');
+        this.playAgain = document.querySelector('.gameover-playagain');
+        this.grandResult = document.querySelector('.grandResult');
+        this.grandNext = document.querySelector('.grand-next');
+
+
 
         if (params.get("cat") == 'authors') {
-            this.answerElement.forEach( (el) => {
+            this.answerElement.forEach((el) => {
                 el.addEventListener('click', this.showPopUp.bind(this, el.textContent))
-            })
-            this.nextBtn.addEventListener('click', this.NextQuestionOrExit)
-            this.congratsHome.addEventListener('click', this.goHome)
-            this.nextQuiz.addEventListener('click', this.goNextQuiz)
+            });
+            this.nextBtn.addEventListener('click', this.NextQuestionOrExit);
+            this.congratsHome.addEventListener('click', this.goHome);
+            this.gameOverHome.addEventListener('click', this.goHome);
+            this.nextQuiz.addEventListener('click', this.goNextQuiz);
+            this.grandNext.addEventListener('click', this.goNextQuiz);
+            this.playAgain.addEventListener('click', this.goStartAgain);
         }
     };
 
     showPopUp = (answer) => {
-
-        if (answer === this.right_answer){
+        if (answer === this.right_answer) {
             this.rightAnswer.classList.add('active');
-            this.correctAnswers.push(true);
-            this.totalRightAnswers++;
+            this.correctAnswers[this.num] = true;
+            ++this.totalRightAnswers;
+        } else {
+            this.wrongAnswer.classList.add('active');
+            this.correctAnswers[this.num] = false;
         }
 
-        else {
-            this.wrongAnswer.classList.add('active');
-            this.correctAnswers.push(false);
+        if (this.category === 'Artist Quiz') {
+            this.correctAnswers.forEach((el, index) => {
+                this.pictureResults[this.id][index] = {
+                    'res': el,
+                    'data': categoryData.pageCategoriesAuthor[this.id - 1][index]
+                };
+            });
+            localStorage.setItem('pictureResults', JSON.stringify(this.pictureResults));
         }
 
         this.popUp.classList.add('popUp-active');
@@ -188,69 +221,91 @@ export class Category {
         return false;
     }
 
-    NextQuestionOrExit = () => {
-        const popUp = document.querySelector('.popup');
-        const rightAnswer = document.querySelector('.right-answer');
-        const wrongAnswer = document.querySelector('.wrong-answer');
-        const overlay = document.querySelector('.overlay');
+    NextQuestionOrExit = async () => {
 
-       if (this.num == 9){
-            popUp.classList.remove('popUp-active');
-            rightAnswer.classList.remove('active');
-            wrongAnswer.classList.remove('active');
-            overlay.classList.remove('overlay-fadeIn');
+        if (this.num == 9) {
+            this.popUp.classList.remove('popUp-active');
+            this.rightAnswer.classList.remove('active');
+            this.wrongAnswer.classList.remove('active');
+            this.overlay.classList.remove('overlay-fadeIn');
             const taskInfo = this.cat + this.id;
-            Utils.setLocalStorage(taskInfo, this.totalRightAnswers);
-
-            if (this.id === 12) {
-                return this.gameOverOpen();
-            }
-
+            localStorage.setItem(taskInfo, this.totalRightAnswers);
             if (this.totalRightAnswers === 10) {
                 return this.grandResultOpen();
-            }
-            else{
+            } else {
                 return this.congratulationsOpen();
             }
-
-            location.hash = `/categories?cat=${this.catNum}`;
-        }
-        else {
-            popUp.classList.remove('popUp-active');
-            rightAnswer.classList.remove('active');
-            wrongAnswer.classList.remove('active');
-            overlay.classList.remove('overlay-fadeIn');
-            location.hash = `/category?cat=${this.cat}&id=${this.id}&num=${++this.num}`
+        } else {
+            this.wrongAnswer.classList.remove('active');
+            this.overlay.classList.remove('overlay-fadeIn');
+            this.popUp.classList.remove('popUp-active');
+            this.rightAnswer.classList.remove('active');
+            this.popUp.after(this.loading);
+            setTimeout(this.goNextQuestion, 3000);
         }
     }
 
     congratulationsOpen = () => {
-        console.log("Congrats");
-        const congrats = document.querySelector('.congratulations');
-        congrats.classList.add('popUp-active');
-        const overlay = document.querySelector('.overlay');
-        overlay.classList.add('overlay-fadeIn');
+        this.congratsScore.textContent = `${this.totalRightAnswers}/10`;
+        this.congrats.classList.add('popUp-active');
+        this.overlay.classList.add('overlay-fadeIn');
         return false;
     }
     grandResultOpen = () => {
-        const grandResult = document.querySelector('.grandResult');
-        grandResult.classList.add('popUp-active');
+        this.grandResult.classList.add('popUp-active');
+        this.overlay.classList.add('overlay-fadeIn');
+        return false;
     }
     gameOverOpen = () => {
-        const gameOver = document.querySelector('.gameOver');
-        gameOver.classList.add('popUp-active');
-            }
-    goHome = () => {
-        const overlay = document.querySelector('.overlay');
-        overlay.classList.remove('overlay-fadeIn');
-    }
-    goNextQuiz = (e) => {
-        e.preventDefault()
-        const overlay = document.querySelector('.overlay');
-        overlay.classList.remove('overlay-fadeIn');
-        const congrats = document.querySelector('.congratulations');
-        congrats.classList.remove('popUp-active');
+        this.parentNodeForLoading.removeChild(this.loading);
+        this.gameOver.classList.add('popUp-active');
     }
 
+    goHome = (e) => {
+        e.preventDefault();
+        this.overlay.classList.remove('overlay-fadeIn');
+        this.gameOver.classList.remove('popUp-active');
+        this.congrats.classList.remove('popUp-active');
+        this.popUp.after(this.loading);
+        setTimeout(this.goToHomePage, 3000);
+    }
+
+    goNextQuiz = (e) => {
+        e.preventDefault()
+        this.overlay.classList.remove('overlay-fadeIn');
+        this.congrats.classList.remove('popUp-active');
+        this.grandResult.classList.remove('popUp-active');
+        this.popUp.after(this.loading);
+        if (this.id == 12) {
+            this.gameOverOpen();
+        }
+        else {
+            setTimeout(this.goNextQuizLocation, 3000);
+        }
+
+    }
+
+    goStartAgain = (e) => {
+        e.preventDefault();
+        this.overlay.classList.remove('overlay-fadeIn');
+        this.gameOver.classList.remove('popUp-active');
+        this.popUp.after(this.loading);
+        setTimeout(this.goToFirst, 3000);
+    }
+
+
+    goNextQuizLocation = () => {
+        location.hash = `/category?cat=${this.cat}&id=${+this.id + 1}`
+    }
+
+    goNextQuestion = () => {
+        location.hash = `/category?cat=${this.cat}&id=${this.id}&num=${++this.num}`
+    }
+    goToFirst = () => {
+        location.hash = `/category?cat=${this.cat}&id=1`
+    }
+    goToHomePage = () => {
+        location.hash = `/`
+    }
 
 }
