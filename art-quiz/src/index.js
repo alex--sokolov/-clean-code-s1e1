@@ -1,6 +1,5 @@
 
 import './css/styles.scss';
-
 import { Home } from './pages/Home';
 import { Category } from './pages/Category';
 import { Categories } from './pages/Categories';

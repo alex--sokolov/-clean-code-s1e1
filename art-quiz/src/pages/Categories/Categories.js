@@ -88,7 +88,7 @@ export class Categories {
         }
         return `
                 <section id="categories" class="section">
-                    <a href="#/settings" class="settings"></a>
+                    <a href="#/settings?from=${document.URL}" class="settings"></a>
                     <a href="/" class="logo2"></a>
                     <div class="categories-page-title">${this.category}</div>
                         <div class="categories-main-container">

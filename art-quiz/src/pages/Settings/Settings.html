@@ -1,9 +1,38 @@
 <section id="settings">
     <div class="settings-back"></div>
     <div class="settings-title">Settings</div>
-    <div class="settings-volume-title">Volume</div>
-    <div class="volume">
-        <input type="range" value="0" min="0" max="100" step="1" class="volume-bar">
+    <div class="settings-title-section">Volume</div>
+    <div class="progress-volume-bar">
+        <input type="range" value="50" min="0" max="100" step="1" class="progress-volume">
+        <div class="volume"></div>
+    </div>
+    <div class="settings-title-section">Time game</div>
+
+    <div class="settings-field">
+        <div class="settings-title-time">On</div>
+        <div class="toggle">
+            <input id="set-time-game" type="checkbox"/>
+            <label class="toggle-on-off" for="set-time-game"></label>
+        </div>
     </div>
 
+    <div class="settings-time-section">
+        <div class="settings-title-section">Time to answer</div>
+        <div class="settings-time-answer">
+            <div class="seconds-minus">-</div>
+            <div class="settings-seconds">20</div>
+            <div class="seconds-plus">+</div>
+        </div>
+    </div>
+
+    <div class="settings-btns">
+        <div class="settings-default">Default</div>
+        <div class="settings-save">Save</div>
+    </div>
 </section>
+
+<div class="footer">
+    <div class="rsschool"></div>
+    <div class="madeby">App developer: Alex Sokolov</div>
+    <div class="year">2021</div>
+</div>

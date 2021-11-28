@@ -1,7 +1,8 @@
 import HomeElement from './Home.html';
 import './Home.scss';
 export class Home {
-  constructor() {}
+  constructor() {
+  }
   async render () {
     return `${HomeElement} `
   }

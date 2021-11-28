@@ -1,8 +1,6 @@
-import CategoryHTML from './Category.html';
 import './Category.scss';
 import {CategoryData} from "../../components/CategoryData";
 import {Loading} from "../../components/Loading";
-import Utils from '../../utils/Utils';
 
 const categoryData = new CategoryData();
 const getRandom = (max) => {
