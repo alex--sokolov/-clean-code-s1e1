@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4877ba15-5777-4d63-a884-674a354281c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f9ee9f4c-0d9f-4f03-92e0-b4914adadbfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/art-quiz/app.30e875a9f8cc2790877d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/22e8ed5e816eaeb0e0b8.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/22e8ed5e816eaeb0e0b8.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/3a674596eeb9f9167efa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/3a674596eeb9f9167efa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/53ede9bb0c88ea9e0d0e.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/53ede9bb0c88ea9e0d0e.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/5f422315419ec164d987.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/5f422315419ec164d987.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/75d8f5a532ea6a01e9f6.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/75d8f5a532ea6a01e9f6.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/7711a88e3e7f04293233.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/7711a88e3e7f04293233.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/af7f2b4dc2f2bdb361fc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/af7f2b4dc2f2bdb361fc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/bd9599f83ccbe5133be7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/bd9599f83ccbe5133be7.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/assets/fb5be1a92e02be9d59ad.json" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/fb5be1a92e02be9d59ad.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art-quiz/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +56,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1637942074241">
