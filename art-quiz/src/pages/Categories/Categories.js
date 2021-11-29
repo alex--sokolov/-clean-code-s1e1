@@ -87,8 +87,8 @@ export class Categories {
             this.categoriesToRenderString = this.categoriesToRenderName.reduce((x, y) => x + y);
         }
         return `
-                <section id="categories" class="section">
-                    <a href="#/settings?from=${document.URL}" class="settings"></a>
+                <section id="categories" class="section">${location.origin + location.hash}
+                    <a href="#/settings?from=${location.origin + location.hash}" class="settings"></a>
                     <a href="/" class="logo2"></a>
                     <div class="categories-page-title">${this.category}</div>
                         <div class="categories-main-container">

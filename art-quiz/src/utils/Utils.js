@@ -12,7 +12,7 @@ const Utils = {
             }
             return urlArr
         };
-        const url = location.hash.slice(1).toLowerCase() || '/';
+        const url = location.hash.slice(1) || '/';
         return sb(url);
     },
 
