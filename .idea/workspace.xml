@@ -6,17 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ee9f4c-0d9f-4f03-92e0-b4914adadbfe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/art-quiz/app.30e875a9f8cc2790877d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/22e8ed5e816eaeb0e0b8.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/22e8ed5e816eaeb0e0b8.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/3a674596eeb9f9167efa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/3a674596eeb9f9167efa.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/53ede9bb0c88ea9e0d0e.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/53ede9bb0c88ea9e0d0e.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/5f422315419ec164d987.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/5f422315419ec164d987.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/75d8f5a532ea6a01e9f6.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/75d8f5a532ea6a01e9f6.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/7711a88e3e7f04293233.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/7711a88e3e7f04293233.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/af7f2b4dc2f2bdb361fc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/af7f2b4dc2f2bdb361fc.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/bd9599f83ccbe5133be7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/bd9599f83ccbe5133be7.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/assets/fb5be1a92e02be9d59ad.json" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/assets/fb5be1a92e02be9d59ad.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art-quiz/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/art-quiz/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean-code-s1e1-master/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/clean-code-s1e1-master/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clean-code-s1e1-master/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/clean-code-s1e1-master/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +28,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../week2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -74,5 +69,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1637942074241" />
+    <state x="301" y="75" key="SettingsEditor" timestamp="1638181022509">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="301" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1638181022509" />
   </component>
 </project>
