@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9ee9f4c-0d9f-4f03-92e0-b4914adadbfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clean-code-s1e1-master/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/clean-code-s1e1-master/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../week2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="SvnConfiguration">
@@ -35,7 +36,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4877ba15-5777-4d63-a884-674a354281c9" name="Default Changelist" comment="" />
+      <changelist id="f9ee9f4c-0d9f-4f03-92e0-b4914adadbfe" name="Default Changelist" comment="" />
       <created>1635106462877</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -43,6 +44,7 @@
       <workItem from="1635106464536" duration="7040000" />
       <workItem from="1637809206068" duration="823000" />
       <workItem from="1637848003891" duration="4004000" />
+      <workItem from="1638200136379" duration="122000" />
     </task>
     <servers />
   </component>
