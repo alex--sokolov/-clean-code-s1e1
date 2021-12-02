@@ -37,7 +37,7 @@
   font-weight: bold;
   color: #fff;
   letter-spacing: -0.9px;
-  margin: 80px auto 50px;
+  margin: 40px auto 20px;
   width: 100%;
   text-align: center;
 }
@@ -84,7 +84,7 @@
   -webkit-mask-image: url("../../assets/svg/volume.svg");
   -webkit-mask-size: contain;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: 0px;
 }
 
@@ -252,8 +252,8 @@ label.toggle-on-off {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 400px;
-  height: 170px;
+  max-width: 400px;
+  height: 120px;
 }
 
 
@@ -267,7 +267,7 @@ label.toggle-on-off {
   width: 156px;
   height: 56px;
   border-radius: 50px;
-  margin: 80px auto;
+  margin: 0 auto;
   text-align: center;
   justify-content: center;
   align-items: center;

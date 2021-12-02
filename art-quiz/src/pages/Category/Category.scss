@@ -1,16 +1,44 @@
-#category{
+#category {
   background-color: #000;
   width: 100vw;
   height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
+.category-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-.audioplayer{
+.category-close {
+  background-color: #fff;
+  mask-image: url("../../assets/svg/category-close.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("../../assets/svg/category-close.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  cursor: pointer;
+  margin: 20px 0px 10px 50px;
+  width: 14px;
+  height: 14px;
+  background-size: contain;
+  display: block;
+  transition: 0.25s;
+}
+
+.category-close:hover {
+  transform: scale(1.8);
+}
+
+
+.audioplayer {
   height: 100px;
 }
 
-.question{
+.question {
   font-family: Gilroy;
   font-size: 22px;
   font-weight: normal;
@@ -18,24 +46,27 @@
   color: #fff;
   text-align: center;
 }
-.picture{
+
+.picture {
   margin: 30px auto;
   text-align: center;
 }
-.picture img{
+
+.picture img {
   position: relative;
   width: 90%;
   border-radius: 10%;
 }
 
-.answers{
+.answers {
   display: flex;
   width: 95%;
   justify-content: center;
   flex-wrap: wrap;
   margin: 0px auto;
 }
-.answer{
+
+.answer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,19 +83,19 @@
   cursor: pointer;
 }
 
-.answer:hover{
+.answer:hover {
   background-color: #FFBCA2;
   color: #000;
   border: #FFBCA2;
   font-weight: bold;
 }
 
-.footer{
+.footer {
   height: 80px;
 }
 
 
-.popup{
+.popup {
   position: fixed;
   top: 70px;
   left: -400%;
@@ -72,15 +103,16 @@
 }
 
 
-.right-answer{
+.right-answer {
   background: url("../../assets/img/correct-answer.png");
 }
 
-.wrong-answer{
+.wrong-answer {
   background: url("../../assets/img/wrong-answer.png");
 }
+
 .right-answer,
-.wrong-answer{
+.wrong-answer {
   position: absolute;
   display: none;
   width: 60px;
@@ -104,15 +136,24 @@
   }
 }
 
+@keyframes toLeft {
+  from {
+    left: 20%;
+  }
+  to {
+    left: -400%;
+  }
+}
 
-.picture-title{
+.picture-title {
   text-align: center;
   font-family: Gilroy;
   font-weight: normal;
   font-size: 32px;
   line-height: 38px;
 }
-.picture-author{
+
+.picture-author {
   text-align: center;
   font-family: Gilroy;
   font-weight: normal;
@@ -120,14 +161,16 @@
   font-size: 22px;
   line-height: 26px;
 }
-.picture-year{
+
+.picture-year {
   text-align: center;
   font-family: Gilroy;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
 }
-.btn-next{
+
+.btn-next {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +185,8 @@
   text-align: center;
   cursor: pointer;
 }
-.btn-next:hover{
+
+.btn-next:hover {
   background-color: hotpink;
 }
 
@@ -167,14 +211,15 @@
 
 .congratulations,
 .grandResult,
-.gameover{
+.gameover,
+.confirm-exit {
   position: fixed;
   top: 70px;
   left: -400%;
   transition: 1s;
 }
 
-.popUp-active{
+.popUp-active {
   width: 60%;
   animation: 1.25s fromLeft;
   left: 20%;
@@ -187,7 +232,7 @@
   transition: 1s;
 }
 
-.close{
+.close {
   text-align: right;
   background-color: #000;
   mask-image: url("../../assets/svg/close.svg");
@@ -205,25 +250,25 @@
   display: block;
 }
 
-.close:hover{
+.close:hover {
   background-color: #333;
 }
 
-.congrat-cup{
+.congrat-cup {
   background: url("../../assets/img/congratulations.png") no-repeat;
   height: 140px;
   width: 150px;
   text-align: center;
 }
 
-.gameover-cup{
+.gameover-cup {
   background: url("../../assets/img/gameOver.png") no-repeat;
   height: 140px;
   width: 150px;
   text-align: center;
 }
 
-.congrat-text{
+.congrat-text {
   font-family: Gilroy;
   font-size: 22px;
   line-height: 28px;
@@ -231,7 +276,7 @@
   margin: 15px auto;
 }
 
-.congratulations-score{
+.congratulations-score {
   font-family: Gilroy;
   font-size: 48px;
   text-align: center;
@@ -239,7 +284,8 @@
 }
 
 .congratsBtns,
-.gameover-btns{
+.gameover-btns,
+.confirm-btns {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,10 +295,10 @@
 .congrats-home,
 .congrats-nextQuiz,
 .gameover-home,
-.gameover-playagain
-{
+.gameover-playagain,
+.confirm-home {
   display: flex;
-  background-color: #FFBCA2;
+  background-color: #ffbca2;
   font-family: Gilroy;
   font-size: 18px;
   width: 45%;
@@ -268,16 +314,48 @@
   text-decoration: none;
 }
 
+.confirm-cancel{
+  display: flex;
+  background-color: #fff;
+  font-family: Gilroy;
+  font-size: 18px;
+  width: 45%;
+  height: 62px;
+  border-radius: 50px;
+  margin: 10px auto 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 1s;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #000;
+}
+
+
+.confirm-home{
+  margin: 10px auto 40px;
+}
+
+
 .congrats-home:hover,
 .congrats-nextQuiz:hover,
 .gameover-home:hover,
-.gameover-playagain:hover{
+.gameover-playagain:hover,
+.confirm-home:hover {
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
 
+.confirm-cancel:hover{
+  background-color: #000;
+  color: #fff;
+}
+
+
 .go-text,
-.grand-text{
+.grand-text {
   font-family: Gilroy;
   font-size: 36px;
   font-weight: bold;
@@ -285,24 +363,25 @@
   margin: 20px;
 }
 
-.grand-text{
+.grand-text {
   font-size: 54px;
 }
 
-.text-small{
+.text-small {
   font-family: Gilroy;
   font-size: 22px;
   font-weight: normal;
   text-align: center;
 }
 
-.stars{
+.stars {
   background: url("../../assets/img/grandResult.png") no-repeat;
   height: 140px;
   width: 100%;
   background-position: center;
 }
-.grand-next{
+
+.grand-next {
   display: flex;
   background-color: #FFBCA2;
   font-family: Gilroy;
@@ -320,7 +399,50 @@
   text-decoration: none;
 }
 
-.grand-next:hover{
+.grand-next:hover {
   border: 1px solid #ccc;
   background-color: #f1f1f1;
+}
+
+.confirm-text {
+  margin:50px;
+  font-family: Gilroy;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+}
+
+.time-game-bar{
+  display: none;
+}
+
+.time-active{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.progress-time {
+  background: linear-gradient(to right, $color-pink 0%,
+          $color-pink 100%, #a4a4a4 100%, #a4a4a4 100%);
+  border-radius: 8px;
+  height: 3px;
+  min-width: 200px;
+  width: 60vw;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+  padding-right: 0px;
+  cursor: pointer
+}
+
+.progress-time::-webkit-slider-thumb {
+  display: none;
+}
+
+.time {
+  color: #fff;
+  margin-left: 20px;
 }

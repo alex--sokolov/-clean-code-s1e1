@@ -8,6 +8,7 @@ export class Settings {
     }
 
     async render(params) {
+
         this.from = params ? params.get('from') : '/'
         return SettingsElement;
     }
@@ -82,16 +83,43 @@ export class Settings {
         }
 
 
+        const setSettings = () => {
+
+            volumeBar.value = localStorage.getItem('volume')
+                ? +JSON.parse(localStorage.getItem('volume')) : 50;
+            volumeBar.style.background = `linear-gradient(to right, #ffbca2 0%, #ffbca2 ${volumeBar.value}%, #fff ${volumeBar.value}%, #fff 100%)`;
+
+            if (volumeBar.value == 0) {
+                volume.classList.add('mute')
+            }
+            else if (volume.classList.contains('mute')) volume.classList.remove('mute');
+            settingsTitleTime.textContent = localStorage.getItem('timeGame')
+                                 ? localStorage.getItem('timeGame') : 'Off';
+
+            settingsSeconds.textContent = localStorage.getItem('secondsForAnswer')
+                ? localStorage.getItem('secondsForAnswer') : '20';
+            if (settingsTitleTime.textContent === 'On'){
+                settingsTimeSection.classList.remove('out');
+                settingsTimeSection.classList.add('in');
+            }
+            else {
+                setTimeGame.checked = 'true';
+                settingsTimeSection.classList.remove('in');
+                settingsTimeSection.classList.add('out');
+            }
+        }
+
+        setSettings();
+
         const setDefaultSettings = () => {
             volumeBar.value = 50;
             volumeBar.style.background = `linear-gradient(to right, #FFBCA2 0%,
-    #FFBCA2 50%, #fff 50%, white 100%)`;
+    #FFBCA2 50%, #fff 50%, #fff 100%)`;
             if (volume.classList.contains('mute')) volume.classList.remove('mute');
             settingsTitleTime.textContent = 'On';
             settingsSeconds.textContent = '20';
             settingsTimeSection.classList.remove("out");
             settingsTimeSection.classList.add("in");
-
         }
 
         const saveSettings = () => {

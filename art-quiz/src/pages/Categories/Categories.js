@@ -16,20 +16,28 @@ export class Categories {
         this.passedTask = '';
         this.key = 0;
 
-        this.categoriesToRenderAuthor = categoryData.pageCategoriesAuthor.map((pageCategory, index) => {
-            this.key = index + 1;
-            Utils.getLocalStorage('authors' +  this.key, this.score);
-            if (this.score.value > 0){
-                this.outScore = this.score.value + '/10';
-                this.passedTask = 'passed';
-                this.score.value = 0
-            }
-            else {
-                this.score.value = 0
-                this.outScore = '';
-                this.passedTask = '';
-            }
-            return `
+    };
+
+    async render(params) {
+
+        if (params.get("cat") == 1) {
+            this.category = 'Artist Quiz';
+            this.cat = 1;
+            this.catLink = 2;
+            this.categoriesToRenderAuthor = categoryData.pageCategoriesAuthor.map((pageCategory, index) => {
+                this.key = index + 1;
+                Utils.getLocalStorage('authors' +  this.key, this.score);
+                if (this.score.value > 0){
+                    this.outScore = this.score.value + '/10';
+                    this.passedTask = 'passed';
+                    this.score.value = 0
+                }
+                else {
+                    this.score.value = 0
+                    this.outScore = '';
+                    this.passedTask = '';
+                }
+                return `
                     <div class="categories-container">
                         <div class="categories-info">
                             <div class="categories-title">${categoryData.artistsCategoryTitles[index]}</div>
@@ -42,20 +50,26 @@ export class Categories {
                         </div>
                     </div>
                     `
-        });
+            });
 
-        this.categoriesToRenderName = categoryData.pageCategoriesName.map((pageCategory, index) => {
-            this.key = index + 1;
-            Utils.getLocalStorage('names' +  this.key, this.score);
-            if (this.score.value > 0){
-                this.outScore = this.score.value + '/10';
-                this.passedTask = 'passed';
-            }
-            else {
-                this.outScore = '';
-                this.passedTask = '';
-            }
-            return `
+            this.categoriesToRenderString = this.categoriesToRenderAuthor.reduce((x, y) => x + y);
+        }
+        if (params.get("cat") == 2) {
+            this.category = 'Picture Quiz';
+            this.cat = 2;
+            this.catLink = 1;
+            this.categoriesToRenderName = categoryData.pageCategoriesName.map((pageCategory, index) => {
+                this.key = index + 1;
+                Utils.getLocalStorage('names' +  this.key, this.score);
+                if (this.score.value > 0){
+                    this.outScore = this.score.value + '/10';
+                    this.passedTask = 'passed';
+                }
+                else {
+                    this.outScore = '';
+                    this.passedTask = '';
+                }
+                return `
                     <div class="categories-container">
                       <div class="categories-info">
                         <div class="categories-title">${categoryData.artistsCategoryTitles[index]}</div>
@@ -70,22 +84,10 @@ export class Categories {
                       </div>
                     </div>
                     `
-        });
-    };
-
-    async render(params) {
-        if (params.get("cat") == 1) {
-            this.category = 'Artist Quiz';
-            this.cat = 1;
-            this.catLink = 2;
-            this.categoriesToRenderString = this.categoriesToRenderAuthor.reduce((x, y) => x + y);
-        }
-        if (params.get("cat") == 2) {
-            this.category = 'Picture Quiz';
-            this.cat = 2;
-            this.catLink = 1;
+            });
             this.categoriesToRenderString = this.categoriesToRenderName.reduce((x, y) => x + y);
         }
+
         return `
                 <section id="categories" class="section">${location.origin + location.hash}
                     <a href="#/settings?from=${location.origin + location.hash}" class="settings"></a>

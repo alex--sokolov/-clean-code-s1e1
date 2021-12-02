@@ -16,6 +16,11 @@ const Utils = {
         return sb(url);
     },
 
+    getRandom: (max) => {
+        return Math.floor(Math.random() * max);
+    },
+    shuffledArray: (arr) => arr.sort((a, b) => 0.5 - Math.random()),
+
     setLocalStorage(key, data) {
         localStorage.setItem(key, data.value);
     },

@@ -1,12 +1,9 @@
 import './Category.scss';
 import {CategoryData} from "../../components/CategoryData";
 import {Loading} from "../../components/Loading";
+import Utils from '../../utils/Utils';
 
 const categoryData = new CategoryData();
-const getRandom = (max) => {
-    return Math.floor(Math.random() * max);
-}
-const shuffledArray = (arr) => arr.sort((a, b) => 0.5 - Math.random());
 
 export class Category {
     constructor() {
@@ -31,6 +28,8 @@ export class Category {
         };
         if (!localStorage.getItem('pictureResults')) {
             localStorage.setItem('pictureResults', JSON.stringify(this.initialResults));
+        }
+        if (!localStorage.getItem('artistsResults')) {
             localStorage.setItem('artistsResults', JSON.stringify(this.initialResults));
         }
         this.pictureResults = JSON.parse(localStorage.getItem('pictureResults'));
@@ -41,18 +40,18 @@ export class Category {
                             alt="${categoryData.pageCategoriesAuthor[id - 1][num].name}">   
                    `
         }
-        this.categoryAnswers = (id, num) => {
+        this.categoryAnswers = () => {
             const answers = [];
             let uniqueAuthor;
             answers.push(this.right_answer);
             for (let i = 0; i < 3;) {
-                uniqueAuthor = categoryData.answers.answersByAuthor[getRandom(categoryData.answers.answersByAuthor.length)]
+                uniqueAuthor = categoryData.answers.answersByAuthor[Utils.getRandom(categoryData.answers.answersByAuthor.length)]
                 if (uniqueAuthor !== this.right_answer) {
                     answers.push(uniqueAuthor);
                     i++;
                 }
             }
-            shuffledArray(answers);
+            Utils.shuffledArray(answers);
             return `
                     <div class="answers">
                         <div class="answer">${answers[0]}</div>
@@ -62,25 +61,40 @@ export class Category {
                     </div> 
                     `
         }
+
+
+
     };
 
     async render(params) {
+        if (localStorage.getItem('timeGame') === 'On'){
+            clearInterval(this.secondsLeftInterval);
+            this.secondsForAnswer = JSON.parse(localStorage.getItem('secondsForAnswer'));
+            this.secondsForAnswerLeft = this.secondsForAnswer;
+        }
+
+
 
         if (params.get("cat") == 'authors') {
             this.category = 'Artist Quiz';
             this.cat = 'authors';
-            this.catNum = 1;
             this.id = params.get("id") || 1;
             this.num = params.get("num") || 0;
             this.popupBtn = (this.num != 9) ? `Next` : 'The End';
             this.right_answer = categoryData.pageCategoriesAuthor[this.id - 1][this.num].author;
             this.question = 'Who is the author of this picture?'
             this.categoryPictureToRenderString = this.categoryPicture(this.id, this.num);
-            this.categoryAnswersToRenderString = this.categoryAnswers(this.id, this.num);
+            this.categoryAnswersToRenderString = this.categoryAnswers();
 
             return `
             <section id="category" class="section">
-                <div class="audioplayer"></div>
+                <div class="category-top">
+                    <div class="category-close"></div>
+                    <div class="time-game-bar">
+                       <input type="range" value="100" min="0" max="100" step="1" class="progress-time">
+                       <div class="time">${this.secondsForAnswerLeft}</div>
+                    </div>
+                </div>
                 <div class="question">${this.question}</div>
                 <div class="category-main-container">
                     <div class="category-container">
@@ -121,8 +135,7 @@ export class Category {
                 <a href="/" class="close"></a>
                 <div class="congrat-cup"></div>
                 <div class="congrat-text">Congratulations!</div>
-                <div class="congratulations-score"></div>
-                
+                <div class="congratulations-score"></div>  
                 <div class="congratsBtns">
                     <a href="/" class="congrats-home">Home</a>
                     <a href="/#/category?cat=${this.cat}&id=${+this.id + 1}" class="congrats-nextQuiz">NextQuiz</a>
@@ -145,6 +158,15 @@ export class Category {
                 <div class="gameover-btns">
                     <a href="/" class="gameover-home">Cancel</a>
                     <a href="" class="gameover-playagain">Yes</a>
+                </div>
+            </div>
+            
+            <div class="confirm-exit">
+                <div class="close"></div>
+                <div class="confirm-text">Do you really want to quit the game?</div>
+                <div class="confirm-btns">
+                    <a href="/" class="confirm-cancel">Cancel</a>
+                    <a href="" class="confirm-home">Yes</a>
                 </div>
             </div>
       `
@@ -178,23 +200,70 @@ export class Category {
         this.playAgain = document.querySelector('.gameover-playagain');
         this.grandResult = document.querySelector('.grandResult');
         this.grandNext = document.querySelector('.grand-next');
+        this.categoryClose = document.querySelector('.category-close');
+        this.confirmExit = document.querySelector('.confirm-exit');
+        this.confirmExitClose = document.querySelector('.confirm-exit > .close');
+        this.confirmCancel = document.querySelector('.confirm-cancel');
+        this.confirmHome = document.querySelector('.confirm-home');
 
+        this.timeGameBar = document.querySelector('.time-game-bar');
+        this.progressTime = document.querySelector('.progress-time');
+        this.timeLeft = document.querySelector('.time');
 
+        this.secondsLeft = function (seconds) {
+            this.secondsLeftInterval = setInterval(() => {
+            if (seconds < 0 ) {
+                this.showPopUp('timeViolation');
+            }
+            else{
+            this.progressTime.value = seconds/this.secondsForAnswer*100;
+            this.progressTime.style.background = `linear-gradient(to right, 
+                                                  #ffbca2 0%,
+                                                  #ffbca2 ${this.progressTime.value}%, 
+                                                  #a4a4a4 ${this.progressTime.value}%, 
+                                                  #a4a4a4 100%)`;
+            this.timeLeft.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            this.secondsForAnswerLeft = --seconds;
+
+            }
+        }, 1000)};
+
+        if (localStorage.getItem('timeGame') === 'On') {
+            if (!this.timeGameBar.classList.contains('time-active')) this.timeGameBar.classList.add('time-active')
+            this.secondsLeft(this.secondsForAnswer);
+        }
 
         if (params.get("cat") == 'authors') {
             this.answerElement.forEach((el) => {
                 el.addEventListener('click', this.showPopUp.bind(this, el.textContent))
             });
-            this.nextBtn.addEventListener('click', this.NextQuestionOrExit);
-            this.congratsHome.addEventListener('click', this.goHome);
-            this.gameOverHome.addEventListener('click', this.goHome);
-            this.nextQuiz.addEventListener('click', this.goNextQuiz);
-            this.grandNext.addEventListener('click', this.goNextQuiz);
-            this.playAgain.addEventListener('click', this.goStartAgain);
         }
+        else {
+
+        }
+
+
+        this.nextBtn.addEventListener('click', this.NextQuestionOrExit);
+        this.congratsHome.addEventListener('click', this.goHome);
+        this.gameOverHome.addEventListener('click', this.goHome);
+        this.nextQuiz.addEventListener('click', this.goNextQuiz);
+        this.grandNext.addEventListener('click', this.goNextQuiz);
+        this.playAgain.addEventListener('click', this.goStartAgain);
+        this.categoryClose.addEventListener('click', this.goConfirmExit);
+        this.confirmExitClose.addEventListener('click', this.goConfirmClose);
+        this.confirmCancel.addEventListener('click', this.goConfirmClose);
+        this.confirmHome.addEventListener('click', this.goHome);
+
+
+
+
     };
 
     showPopUp = (answer) => {
+        if (localStorage.getItem('timeGame') === 'On') {
+            this.secondsForAnswerLeft = this.secondsForAnswer;
+            clearInterval(this.secondsLeftInterval);
+        }
         if (answer === this.right_answer) {
             this.rightAnswer.classList.add('active');
             this.correctAnswers[this.num] = true;
@@ -206,12 +275,12 @@ export class Category {
 
         if (this.category === 'Artist Quiz') {
             this.correctAnswers.forEach((el, index) => {
-                this.pictureResults[this.id][index] = {
+                this.artistsResults[this.id][index] = {
                     'res': el,
                     'data': categoryData.pageCategoriesAuthor[this.id - 1][index]
                 };
             });
-            localStorage.setItem('pictureResults', JSON.stringify(this.pictureResults));
+            localStorage.setItem('artistsResults', JSON.stringify(this.artistsResults));
         }
 
         this.popUp.classList.add('popUp-active');
@@ -226,8 +295,7 @@ export class Category {
             this.rightAnswer.classList.remove('active');
             this.wrongAnswer.classList.remove('active');
             this.overlay.classList.remove('overlay-fadeIn');
-            const taskInfo = this.cat + this.id;
-            localStorage.setItem(taskInfo, this.totalRightAnswers);
+            localStorage.setItem(this.cat + this.id, this.totalRightAnswers);
             if (this.totalRightAnswers === 10) {
                 return this.grandResultOpen();
             } else {
@@ -258,18 +326,37 @@ export class Category {
         this.parentNodeForLoading.removeChild(this.loading);
         this.gameOver.classList.add('popUp-active');
     }
+    goConfirmExit = () => {
+        if (localStorage.getItem('timeGame') === 'On') {
+            clearInterval(this.secondsLeftInterval);
+        }
+        this.overlay.classList.add('overlay-fadeIn');
+        this.confirmExit.classList.add('popUp-active');
+    }
+    goConfirmClose = async (e) => {
+        e.preventDefault();
+        if (localStorage.getItem('timeGame') === 'On') {
+            this.secondsLeft(this.secondsForAnswerLeft);
+        }
+        this.confirmExit.classList.remove('popUp-active');
+        this.overlay.classList.remove('overlay-fadeIn');
+    }
 
     goHome = (e) => {
         e.preventDefault();
+        if (localStorage.getItem('timeGame') === 'On') {
+            this.secondsForAnswerLeft = this.secondsForAnswer;
+        }
         this.overlay.classList.remove('overlay-fadeIn');
-        this.gameOver.classList.remove('popUp-active');
-        this.congrats.classList.remove('popUp-active');
+        if (this.gameOver.classList.contains('popUp-active')) this.gameOver.classList.remove('popUp-active');
+        if (this.congrats.classList.contains('popUp-active')) this.congrats.classList.remove('popUp-active');
+        if (this.confirmExit.classList.contains('popUp-active')) this.confirmExit.classList.remove('popUp-active');
         this.popUp.after(this.loading);
         setTimeout(this.goToHomePage, 3000);
     }
 
     goNextQuiz = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         this.overlay.classList.remove('overlay-fadeIn');
         this.congrats.classList.remove('popUp-active');
         this.grandResult.classList.remove('popUp-active');

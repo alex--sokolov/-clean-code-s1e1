@@ -1,4 +1,4 @@
-#home{
+#home {
   width: 100vw;
   height: 100vh;
   background: url("../../assets/img/j-retrato-de-cardenal-rafael-1.png") center no-repeat;
@@ -7,7 +7,8 @@
   min-width: 520px;
   padding-top: 168px;
 }
-.settings{
+
+.settings {
   background-color: #fff;
   mask-image: url("../../assets/svg/carbon_settings.svg");
   mask-size: contain;
@@ -23,6 +24,7 @@
   cursor: pointer;
 
 }
+
 .main-info {
   display: flex;
   flex-direction: column;
@@ -30,7 +32,7 @@
   align-items: center;
 }
 
-.menu-item{
+.menu-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,25 +50,25 @@
   font-size: 24px;
   letter-spacing: -0.4px;
 }
+
 .menu-item {
   &:hover,
   &:active,
-  &:focus{
+  &:focus {
     background-color: #fff;
     opacity: 0.75;
     color: #000;
   }
-  &:active{
+
+  &:active {
     opacity: 1;
   }
 
 }
 
 
-
-
-.logo{
-  margin: 400px auto 10px auto;
+.logo {
+  margin: 200px auto 10px auto;
   height: 100px;
   width: 40%;
   background-color: #fff;
@@ -80,15 +82,15 @@
   cursor: pointer;
 }
 
-.footer{
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 400px;
+  height: 140px;
 }
 
-.rsschool{
+.rsschool {
   mask-image: url("../../assets/svg/rs_school.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -101,13 +103,14 @@
   height: 23px;
 }
 
-.madeby{
-  color:#fff;
+.madeby {
+  color: #fff;
   font-family: Gilroy;
   font-size: 14px;
 }
-.year{
-  color:#fff;
+
+.year {
+  color: #fff;
   font-family: Gilroy;
   font-size: 14px;
 }
