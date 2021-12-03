@@ -27,6 +27,7 @@ export class Categories {
             this.categoriesToRenderAuthor = categoryData.pageCategoriesAuthor.map((pageCategory, index) => {
                 this.key = index + 1;
                 Utils.getLocalStorage('authors' +  this.key, this.score);
+                console.log("authors" + this.key + ": " + this.score.value);
                 if (this.score.value > 0){
                     this.outScore = this.score.value + '/10';
                     this.passedTask = 'passed';
@@ -60,12 +61,15 @@ export class Categories {
             this.catLink = 1;
             this.categoriesToRenderName = categoryData.pageCategoriesName.map((pageCategory, index) => {
                 this.key = index + 1;
-                Utils.getLocalStorage('names' +  this.key, this.score);
+                Utils.getLocalStorage('name' +  this.key, this.score);
+                console.log("name" + this.key + ": " + this.score.value);
                 if (this.score.value > 0){
                     this.outScore = this.score.value + '/10';
                     this.passedTask = 'passed';
+                    this.score.value = 0
                 }
                 else {
+                    this.score.value = 0
                     this.outScore = '';
                     this.passedTask = '';
                 }

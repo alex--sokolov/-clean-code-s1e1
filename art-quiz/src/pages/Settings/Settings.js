@@ -77,7 +77,7 @@ export class Settings {
         }
 
         const secondsDown = () => {
-            settingsSeconds.textContent = +settingsSeconds.textContent === 0
+            settingsSeconds.textContent = +settingsSeconds.textContent === 5
                 ? +settingsSeconds.textContent
                 : +settingsSeconds.textContent - 5
         }
